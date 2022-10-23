@@ -1,10 +1,15 @@
 type props = {
-    keyPadNumber: number
+    keyPadNumber: number,
+	clickHandler: (number: number) => void
 }
 
-function key( props: props ) {
+function keyPress(number: number, clickHandler: (number: number) => void): void {
+	clickHandler(number);
+}
+
+function key( props: props): JSX.Element {
     return (
-        <p>{ props.keyPadNumber }</p>
+        <button onClick={() => keyPress(props.keyPadNumber, props.clickHandler)}>{ props.keyPadNumber }</button>
     );
 }
 
